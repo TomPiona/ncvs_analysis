@@ -68,7 +68,15 @@ tab V3054, gen(nocall)
 
 
 
+
 //use "incident/36828-0004-Data.dta", clear
+
+
+
+
+* RENAMING VARIABLES
+rename V3013 age
+
 
 
 
@@ -78,10 +86,11 @@ tab V3054, gen(nocall)
 *
 
 // histogram of ages
-hist V3013, width(1)
+hist age, width(1)
 
 // education levels
 sum(`edu')
+display "Proportion represented by these levels of education:"  _continue
 display (.2014826 + .2496841 + .2588116 + .1729288 + .0968375)
 
 // crosstab-ing not calling the police and having been broken into
@@ -99,7 +108,7 @@ tab nocall1 V3036, chi2
 
 // logit w/ thought crime but no police
 logit nocall1 V3032 V3036
-logit nocall2 V3032 V3036 hispanic black
+logit nocall2 V3032 V3036 hispanic black `edu' age
 
 // V3081 - NUMBER OF CRIME INCIDENT REPORTS (individual data-set)
 // V4399 - REPORTED TO POLICE (incident report data-set)
