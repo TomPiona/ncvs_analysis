@@ -3,10 +3,10 @@
 *
 
 // histogram of ages
-hist age, width(1)
+// hist age, width(1)
 
 // education levels
-sum(`edu')
+// sum(`edu')
 display "Proportion represented by these levels of education:"  _continue
 display (.2014826 + .2496841 + .2588116 + .1729288 + .0968375)
 
@@ -23,8 +23,8 @@ local races "hispanic black"
 local other_vars "age"
 
 // logit w/ thought crime but no police
-logit nocall1 V3032 V3036
-logit nocall2 V3032 V3036 `races' `edu' `other_vars'
+// logit nocall1 V3032 V3036
+// logit nocall2 V3032 V3036 `races' `edu' `other_vars'
 
 // V3081 - NUMBER OF CRIME INCIDENT REPORTS (individual data-set)
 // V4399 - REPORTED TO POLICE (incident report data-set)
