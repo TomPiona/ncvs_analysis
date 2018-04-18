@@ -15,6 +15,8 @@ replace white=1 if race2=="White only" & hispanic==0
 gen black=0
 replace black=1 if race2=="Black only" & hispanic==0
 drop race2
+gen non_white=0
+replace non_white=1 if black==1 | hispanic==1
 
 // dropping the rows if they are not hispanic, white, or black
 drop if hispanic!=1 & white!=1 & black!=1
