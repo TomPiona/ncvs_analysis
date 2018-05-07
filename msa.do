@@ -45,6 +45,8 @@ drop if black==0 & white==0 & hispanic==0
 
 rename V3014 age
 
+rename V4529 crime
+
 gen female=0
 replace female=1 if V3018==2
 
@@ -55,10 +57,10 @@ gen black_post=post_rk *black
 gen hispanic_post=post_rk *hispanic  
 
 logit reported female age black hispanic post_hs post_rk black_post hispanic_post i.MSACC, robust
-logit reported female age black hispanic post_hs post_rk black_post hispanic_post i.MSACC i.V4529, robust
-logit reported female age black hispanic post_hs post_rk black_post hispanic_post i.MSACC i.V4529 [pweight= V4529], robust
-logit reported female age black hispanic post_hs post_rk black_post hispanic_post post_time i.MSACC i.V4529 [pweight= V4529]
+logit reported female age black hispanic post_hs post_rk black_post hispanic_post i.MSACC i.crime, robust
+logit reported female age black hispanic post_hs post_rk black_post hispanic_post i.MSACC i.crime [pweight= crime], robust
+logit reported female age black hispanic post_hs post_rk black_post hispanic_post post_time i.MSACC i.crime [pweight= crime]
 
-drop if MSACC != 17
+//drop if MSACC != 17
 
-logit reported female age black hispanic post_hs post_rk black_post hispanic_post, robust
+//logit reported female age black hispanic post_hs post_rk black_post hispanic_post, robust
